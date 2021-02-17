@@ -1,7 +1,3 @@
-const API_URL = '';
+const API_URL = 'https://wordsapiv1.p.rapidapi.com/words/';
 
-const ENDPOINTS = {
-
-};
-
-export { API_URL, ENDPOINTS };
+export { API_URL };

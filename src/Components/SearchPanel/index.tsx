@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { FormEvent } from 'react';
+import { useForm } from 'react-hook-form';
 
 const SearchPanel = () => {
-  return (
-    <div>
-      SearchPanel
-    </div>
-  )
-}
+  const { handleSubmit, register, errors } = useForm();
+  const onSubmit = (values: any) => console.log(values);
 
-export default SearchPanel
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="search">
+      <input
+        className="search__input"
+        name="word"
+        ref={register({
+          required: true,
+        })}
+      />
+      <button type="submit" className="search__button">
+        Пошук
+      </button>
+      {errors.word && <p className="search__error">Please input some info</p>}
+    </form>
+  );
+};
+
+export default SearchPanel;
