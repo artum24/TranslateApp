@@ -9,13 +9,14 @@ const SearchPanel = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="search">
       <input
         className="search__input"
+        placeholder="Search"
         name="word"
         ref={register({
           required: true,
         })}
       />
       <button type="submit" className="search__button">
-        Пошук
+        Search
       </button>
       {errors.word && <p className="search__error">Please input some info</p>}
     </form>

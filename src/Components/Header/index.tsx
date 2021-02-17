@@ -1,7 +1,14 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
-  return <div>Header</div>;
+  return (
+    <div className="header">
+      <Link to="/" className="header__title">
+        Translator Online
+      </Link>
+    </div>
+  );
 };
 
 export default Header;
