@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
-import Loader from '../Components/Loader';
-import WordList from '../Components/WordList';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { getWordThunkCreactor } from '../features/word/thunk';
 import { AppStateType } from '../store/store';
+
+import Loader from '../Components/Loader';
+import WordList from '../Components/WordList';
 
 type ParamType = {
   name: string;

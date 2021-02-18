@@ -7,7 +7,7 @@ import {
   GET_WORDS_REQUEST,
   GET_WORDS_SUCCESS,
 } from './actionsType';
-import { wordsType, wordType } from './types';
+import { wordType } from './types';
 
 export const getWordRequest = (): ActionsType => ({
   type: GET_WORD_REQUEST,
