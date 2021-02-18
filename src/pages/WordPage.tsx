@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
 import Loader from '../Components/Loader';
 import WordList from '../Components/WordList';
-import { getUsersThunkCreactor } from '../features/word/thunk';
+import { getWordThunkCreactor } from '../features/word/thunk';
 import { AppStateType } from '../store/store';
 
 type ParamType = {
@@ -15,10 +15,9 @@ const WordPage = () => {
   const word = useSelector((state: AppStateType) => state.word.word);
   const status = useSelector((state: AppStateType) => state.word.status);
   let { name } = useParams<ParamType>();
-  console.log(word);
 
   useEffect(() => {
-    dispatch(getUsersThunkCreactor(name));
+    dispatch(getWordThunkCreactor(name));
   }, [name]);
   if (status === 'loading') {
     return <Loader />;
@@ -26,7 +25,6 @@ const WordPage = () => {
   if (status === 'failure') {
     return <Redirect to="/" />;
   }
-  console.log(word);
 
   return word ? (
     <div className="word">

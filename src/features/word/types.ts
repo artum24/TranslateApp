@@ -3,7 +3,7 @@ export type statusType = 'idle' | 'loading' | 'success' | 'failure';
 export type wordType = {
   pronunciation: { all: string };
   word: string;
-  results: Array<wordResultType>
+  results: Array<wordResultType>;
 };
 
 export type wordResultType = {
@@ -12,4 +12,6 @@ export type wordResultType = {
   examples: Array<string> | null;
   similarTo: Array<string> | null;
   antonyms: Array<string> | null;
-}
+};
+
+export type wordsType = Array<string>;

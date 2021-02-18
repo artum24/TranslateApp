@@ -1,10 +1,17 @@
-import { stat } from 'fs';
-import { ActionsType, GET_WORD_FAILURE, GET_WORD_REQUEST, GET_WORD_SUCCESS } from './actionsType';
+import {
+  ActionsType,
+  GET_WORD_FAILURE,
+  GET_WORD_REQUEST,
+  GET_WORD_SUCCESS,
+  GET_WORDS_FAILURE,
+  GET_WORDS_REQUEST,
+  GET_WORDS_SUCCESS,
+} from './actionsType';
 import { statusType, wordType } from './types';
 
 export type InitialStateType = {
   word: wordType | null;
-  words: object | null;
+  words: Array<{ label: string; value: string }> | null;
   status: statusType;
 };
 
@@ -23,10 +30,19 @@ const wordReducer = (
       return { ...state, status: 'loading' };
     }
     case GET_WORD_SUCCESS: {
-      return {...state, status: 'success', word: action.payload};
+      return { ...state, status: 'success', word: action.payload };
     }
     case GET_WORD_FAILURE: {
-      return {...state, status: 'failure'};
+      return { ...state, status: 'failure' };
+    }
+    case GET_WORDS_REQUEST: {
+      return { ...state, status: 'loading' };
+    }
+    case GET_WORDS_SUCCESS: {
+      return { ...state, status: 'success', words: action.payload };
+    }
+    case GET_WORDS_FAILURE: {
+      return { ...state, status: 'failure' };
     }
     default:
       return state;
