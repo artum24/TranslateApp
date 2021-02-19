@@ -6,6 +6,7 @@ import {
   GET_WORDS_FAILURE,
   GET_WORDS_REQUEST,
   GET_WORDS_SUCCESS,
+  ADD_TO_LAST_VIEW,
 } from './actionsType';
 import { wordType } from './types';
 
@@ -35,4 +36,9 @@ export const getWordsSuccess = (
 
 export const getWordsFailure = (): ActionsType => ({
   type: GET_WORDS_FAILURE,
+});
+
+export const addToLastView = (name: string): ActionsType => ({
+  type: ADD_TO_LAST_VIEW,
+  payload: name,
 });

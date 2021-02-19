@@ -32,7 +32,9 @@ const WordPage = () => {
     <div className="word">
       <div className="word__title-wrapper">
         <h1 className="word__title">{word.word}</h1>
-        <p className="word__pronunciation">[{word.pronunciation.all}]</p>
+        {word.pronunciation ? (
+          <p className="word__pronunciation">[{word.pronunciation.all}]</p>
+        ) : null}
       </div>
       <div className="word__results">
         {word.results.map((item, index) => (

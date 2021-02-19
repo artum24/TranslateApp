@@ -11,7 +11,24 @@
   @media screen and (max-width: $screen-md) {
     grid-template-columns: 1fr;
   }
-  &__last-words {
+  &__last {
     margin-left: 20px;
+    border: 1px solid $color-primary;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  &__last-title {
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  &__last-list {
+    margin-left: 20px;
+  } 
+  &__last-item {
+    font-size: 18px;
+    color: #000;
+    text-decoration: none;
   }
 }

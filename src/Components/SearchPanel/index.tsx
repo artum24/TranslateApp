@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,16 +8,17 @@ import { getWordsThunkCreactor } from '../../features/word/thunk';
 import { AppStateType } from '../../store/store';
 
 import AsyncSelect from 'react-select/async';
+import { addToLastView } from '../../features/word/actions';
 
 const SearchPanel = () => {
   const { handleSubmit, control } = useForm();
   let history = useHistory();
-
-  const onSubmit = (values: { name: { label: string; value: string } }) =>
-    history.push(`/word/${values.name.label}`);
-
   const data = useSelector((state: AppStateType) => state.word.words);
   const dispatch = useDispatch();
+  const onSubmit = (values: { name: { label: string; value: string } }) => {
+    history.push(`/word/${values.name.label}`);
+    dispatch(addToLastView(values.name.label));
+  };
 
   const wait = 1000;
   const loadOptions = (inputValue: string) => getOptions(inputValue);
